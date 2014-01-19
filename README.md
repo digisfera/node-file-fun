@@ -26,6 +26,7 @@ Generate functions which work with files from an asynchronous function which rec
 
 
 **fileToFile_globsToDir(f, extension, oldInputIndex = 0, oldOutputIndex = 1, newGlobOptionsIndex = 1)**
+
 **fileToFile_globsToDirWithWatch(f, extension, oldInputIndex = 0, oldOutputIndex = 1, newGlobOptionsIndex = 1)**
 
 `globsToDirWithWatch` works in the same way as `globsToDir`, but it then watches the patterns to (1) rerun the function on files which were added or have changed and (2) delete files when the original file is deleted
@@ -36,6 +37,7 @@ Generate functions which work with files from an asynchronous function which rec
 
   
 **stringToString_globsToDir(f, extension, inputIndex = 0)**
+
 **stringToString_globsToDirWithWatch(f, extension, inputIndex = 0)**
 
     f(input, function(err, result) { })
