@@ -29,6 +29,7 @@ stringFun_fileFun = (receivesMultipleInputs, f, oldInputIndex = 0, newOutputFile
   outFile = args[newOutputFilePathIndex]
 
   args[callbackIndex] = (err, result) ->
+    if err then return callback(err)
     mkdirp path.dirname(outFile), (err, createdDir) ->
       if err then return callback(err)
       fs.writeFile outFile, result, null, (err) ->
@@ -94,8 +95,8 @@ fileToFile_globsToDirWithOptionalWatch = (f, extension, withWatch = false, oldIn
       f.apply(null, callArgs)
 
     async.map _.zip(inFilesAbsolute, outFiles), processFilePair, (err, success) ->
-      if err then callback(err)
-      else if !withWatch then callback(err, success)
+      
+      if !withWatch then callback(err, success)
       else
         updateCallbackIndex = Math.max(args.length - 2, 4)
         removeCallbackIndex = Math.max(args.length - 1, 5)
