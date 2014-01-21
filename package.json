@@ -1,6 +1,6 @@
 {
   "name": "file-fun",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Wrap functions to work with files",
   "main": "lib/index.js",
   "scripts": {
